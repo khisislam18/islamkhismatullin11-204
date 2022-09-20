@@ -6,7 +6,6 @@ public class MainHW4{
 		System.out.println("Enter number:");
 		int num = scanner.nextInt();
 		System.out.print("Binary number of number " + num + " is: ");
-		int mult = 1;
 		int maxCount = 0;
 		int counter = 0;
 		long bin = 1;
@@ -21,6 +20,8 @@ public class MainHW4{
 				counter += 1;
 			}else if(maxCount < counter){
 				maxCount = counter;
+			}
+			if(bin%2 == 0){
 				counter = 0;
 			}
 			bin /= 10;
