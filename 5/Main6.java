@@ -4,8 +4,8 @@ import java.util.*;
 public class Main6{
 	public static int[] sort(int [] a){
 		for(int i = 0; i < a.length; i++){
-			int min = Integer.MAX_VALUE;
-			int minInd = a.length - 1;
+			int min = a[i];
+			int minInd = i;
 			for(int j = i; j < a.length; j++){
 				if(a[j] < min){
 					min = a[j];

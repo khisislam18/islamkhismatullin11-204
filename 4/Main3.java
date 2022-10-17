@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Main3{
 	public static boolean capitalLetter(char[] spell, String[] arr,int i, boolean ch){
-			if((int)spell[0] > 64 && (int)spell[0] < 91){
+			if(spell[0] > 64 && spell[0] < 91){
 				ch = false;
 				System.out.println(arr[i]);
 			}
