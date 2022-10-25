@@ -1,6 +1,6 @@
 import java.util.*;
 
-
+//бинарный поиск(незаконченный)
 public class Main19{
 	public static int binarySearch(int[] arr, int x){
 		int l = 0;

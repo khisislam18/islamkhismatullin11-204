@@ -1,9 +1,9 @@
 import java.util.*;
 
 
-public class MainTicToe{
-	public static boolean function(int[][] matrix){
-		return;
+public class Main1{
+	public static boolean gameIsNotDone(int[][] matrix){
+		
 	}
 
 
@@ -17,15 +17,25 @@ public class MainTicToe{
 
 	public static void main(String[] args){
 		Scanner scanner = new Scanner(System.in);
-		System.out.print("Enter the amount of elements: ");
-		int k = scanner.nextInt();
 		char [][] matrix = new char[k][k];
 		for(int i = 0; i < k; i++){
 			for (int j = 0; j < k; j++){
 				matrix[i][j] = "_";
 			}
 		}
+		System.out.println("GAME STARTS");
 		printMatrix(matrix);
+		boolean cond = true;
+		while(cond){
+			for(int i = 0; i < 2; i++){
+				if(gameIsNotDone()){
+					cond = false;
+					break;
+				}
+				System.out.print("Player's № " + i + 1 + " turn: ");
+				
+			}
+		}
 
 	}
 }

@@ -1,6 +1,6 @@
 import java.util.*;
 
-import class Main2{
+public class Main2{
 	public static boolean check35(int a){
 		while(a > 0){
 			if(a % 10 == 5 || a % 10 == 3){
@@ -13,11 +13,11 @@ import class Main2{
 	public static void main(String[] args){
 		Scanner scanner = new Scanner(System.in);
 		System.out.print("Enter n: ");
-		int n = scanner.nextInt(System.in);
+		int n = scanner.nextInt();
 		System.out.println("Enter " + n + " numbers");
 		int[] arr = new int[n];
 		for(int i = 0; i < arr.length; i++){
-			arr[i] = scanner.nextInt(System.in);
+			arr[i] = scanner.nextInt();
 		}
 		boolean tmp = false;
 		for(int i = 0; i < arr.length; i++){

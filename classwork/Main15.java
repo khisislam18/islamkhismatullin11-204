@@ -9,4 +9,4 @@ public class Main15{
 		String s1 = scanner.nextLine();
 		System.out.println(s1(0));
 }
-}
+} 
