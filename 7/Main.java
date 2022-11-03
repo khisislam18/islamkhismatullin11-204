@@ -27,7 +27,28 @@ public class Main {
         hungryStatus(bunny1);
         bunny1.training();
         bunny1.sleep(1);
-        Bunny.crossBreading(bunny1, bunny2, "Litcked");
+        Bunny bunny4 = Bunny.crossBreading(bunny1, bunny2, "Litcked");
+        hungryStatus(bunny4);
+        bunny4.feed();
+        hungryStatus(bunny4);
+        bunny4.training();
+        hungryStatus(bunny4);
+        System.out.println(bunny4.getName() + " has " + bunny4.getTrainingSkills() + " strength points!");
+        bunny4.play();
+        System.out.println(bunny4.getName() + " has " + bunny4.getTrainingSkills() + " strength points!");
+        hungryStatus(bunny4);
+        bunny4.training();
+        bunny4.training();
+        bunny4.training();
+        bunny4.training();
+        bunny4.training();
+        bunny4.sleep(5);
+        bunny4.training();
+        bunny.passport();
+        bunny1.passport();
+        bunny2.passport();
+        bunny3.passport();
+        bunny4.passport();
         Bunny.crossBreading(bunny1, bunny3, "Mischief");
     }
 }

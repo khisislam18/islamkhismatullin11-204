@@ -34,19 +34,8 @@ public class Bunny {
         return bunnyTiredStatus;
     }
 
-    public void setBunnyTiredStatus(int bunnyTiredStatus) {
-        this.bunnyTiredStatus = bunnyTiredStatus;
-    }
-
     public boolean getBunnyHungryStatus(){
         return bunnyHungryStatus;
-    }
-    public void setBunnyHungryStatus(boolean bunnyHungryStatus) {
-        this.bunnyHungryStatus = bunnyHungryStatus;
-    }
-
-    public void setTrainingSkills(int trainingSkills) {
-        this.trainingSkills = trainingSkills;
     }
 
     public String getDecorative() {
@@ -85,29 +74,6 @@ public class Bunny {
         return decorative;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setBornCountry(String bornCountry) {
-        this.bornCountry = bornCountry;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public void setFurColour(String furColour) {
-        this.furColour = furColour;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
-    public void setDecorative(String decorative) {
-        this.decorative = decorative;
-    }
 
     public void feed(){
         if(bunnyTiredStatus > 2){
@@ -136,13 +102,13 @@ public class Bunny {
         }
     }
     public void sleep(int duration){
-        if(bunnyTiredStatus < 2){
+        if(bunnyTiredStatus < 1){
             System.out.println(name + " doesn't want to sleep! It's not tired!");
         }else{
             bunnyHungryStatus = false;
             bunnyTiredStatus = 0;
             if(duration > 6){
-                trainingSkills += 1;
+                trainingSkills -= 1;
                 System.out.println(name + " is overslept! -1 for training skills!");
             }else{
                 System.out.println("Good morning, " + name + ". It slept very well!");
@@ -156,17 +122,24 @@ public class Bunny {
             String[] game = new String[] {"football", "hunting", "jumping", "fighting"};
             System.out.println(name + " has just played " + game[(int)(Math.random()*game.length)] + "! " + name + " really liked it!");
             bunnyHungryStatus = false;
-            trainingSkills -= 1;
+            trainingSkills += 1;
             bunnyTiredStatus += 1;
         }
     }
 
+    public void passport(){
+        System.out.println("\n" + name + "'s passport:\nName: " + name + "\nAge: " + age + "\nFur colour: " + furColour + "\nBorn country: " + bornCountry + "\nSex: " + gender + "\nPeculiarities: " + (decorative == null ? "None" : decorative) + "\n");
+    }
     public static Bunny crossBreading(Bunny bunny1, Bunny bunny2, String newName) {
             if(bunny1.getGender().equals(bunny2.getGender())){
                 throw new IllegalArgumentException("Same-sex bunnies can't reproduce.");
             }
             String [] tmp = new String[]{"male", "female"};
-            Bunny bunny = new Bunny(newName, bunny1.getGender().equals("male") ? bunny1.getBornCountry() : bunny2.getBornCountry(), 0, bunny1.getFurColour() + " + " + bunny2.getFurColour(), tmp[(int)(Math.random()*tmp.length)]);
+            Bunny bunny = new Bunny(newName,
+                    bunny1.getGender().equals("male") ? bunny1.getBornCountry() : bunny2.getBornCountry(),
+                    0, bunny1.getFurColour() + " + " + bunny2.getFurColour(),
+                    tmp[(int)(Math.random()*tmp.length)],
+                    bunny1.getDecorative() != null && bunny2.getDecorative() != null ?  bunny1.getDecorative() + " and " + bunny2.getDecorative() : bunny1.getDecorative() == null ? bunny2.getDecorative() : bunny2.getDecorative() == null ? bunny1.getDecorative() : "None");
             System.out.println("Congrats " + bunny1.getName() + " and " + bunny2.getName() + "! Welcome new bunny in our world: " + newName);
             return bunny;
     }
