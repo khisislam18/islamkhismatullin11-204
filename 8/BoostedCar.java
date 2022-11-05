@@ -22,8 +22,11 @@ public class BoostedCar extends Car {
         for (int i = 0; i < duration; i++) {
             arrSpeed[i] = i < 3 ? speedFirst3Minutes : speedAfter;
         }
-        int boostEndTime = boostStartTime + 2;
         int sumDistance = duration >= 3 ? speedFirst3Minutes * 3 + speedAfter * (duration - 3) : speedFirst3Minutes * duration;
+        if(boostStartTime == -1){
+            return sumDistance;
+        }
+        int boostEndTime = boostStartTime + 2;
         for (int i = boostStartTime - 1; boostEndTime < duration ? i < boostEndTime : i < duration; i++) {
             sumDistance += arrSpeed[i];
         }
