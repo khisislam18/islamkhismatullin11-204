@@ -55,7 +55,7 @@ public class Main {
         bunny4.passport();
         Bunny bunnyNull = new Bunny();
         try{
-            System.out.println("New decorate for " + bunny1.getName() + ": " + Bunny.implantDecorate(bunny1, null));
+            System.out.println("New decorate for " + bunnyNull.getName() + ": " + Bunny.implantDecorate(bunnyNull, null));
         }catch(NullPointerException e){
             throw new BunnyException("Task1.Bunny shouldn't be null.", e);
         }
