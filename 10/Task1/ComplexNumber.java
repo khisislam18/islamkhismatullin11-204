@@ -35,8 +35,11 @@ public class ComplexNumber {
         realPart -= complexNumber.getRealPart();
         complexPart -= complexNumber.getComplexPart();
     }
+    public ComplexNumber multNumber(double a){
+        return new ComplexNumber(realPart * a, complexPart * a);
+    }
 
-    public void multNumber(double a){
+    public void multNumber2(double a){
         realPart *= a;
         complexPart *= a;
     }

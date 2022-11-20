@@ -1,5 +1,4 @@
 import java.io.*;
-import java.util.Arrays;
 
 
 public class Main2 {
@@ -38,9 +37,15 @@ public class Main2 {
                     }
                     if (c == 32 || index == charArr.length - 1) {
                         switch (countSpaces) {
-                            case 0 -> speedFirst3Minutes = Integer.parseInt(str);
-                            case 1 -> speedAfter = Integer.parseInt(str);
-                            case 2 -> boostStartTime = Integer.parseInt(str);
+                            case 0:
+                                speedFirst3Minutes = Integer.parseInt(str);
+                                break;
+                            case 1:
+                                speedAfter = Integer.parseInt(str);
+                                break;
+                            case 2:
+                                boostStartTime = Integer.parseInt(str);
+                                break;
                         }
                         countSpaces += 1;
                         str = "";

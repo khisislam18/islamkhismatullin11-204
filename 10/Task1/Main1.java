@@ -1,8 +1,8 @@
 public class Main1 {
     public static void main(String[] args) {
-        ComplexNumber complexNumber1 = new ComplexNumber(-3,-1);
+        ComplexNumber complexNumber1 = new ComplexNumber(-2,0);
         System.out.println(complexNumber1);
-        ComplexNumber complexNumber2 = new ComplexNumber(-1,-2);
+        ComplexNumber complexNumber2 = new ComplexNumber(0,-2);
         System.out.println(complexNumber2);
         ComplexNumber complexNumber3 = complexNumber1.add(complexNumber2);
         System.out.println("a3 = a1 + a2\n" + complexNumber3);
@@ -20,10 +20,12 @@ public class Main1 {
         System.out.println("a6 = a5 - a4\n" + complexNumber6);
         complexNumber6.sub2(complexNumber3);
         System.out.println("a6 -= a3\n" + complexNumber6);
-        complexNumber6.multNumber(5);
+        complexNumber6.multNumber2(5);
         System.out.println("a6 *= k\n" + complexNumber6);
         ComplexNumber complexNumber7 = complexNumber6.pow(2);
         System.out.println("a7 = a6 ^ n\n" + complexNumber7);
+        ComplexNumber complexNumber8 = complexNumber7.multNumber(5);
+        System.out.println("a8 = a7 * CONST\n" + complexNumber8);
         System.out.println("Complex module of a1: " + complexNumber1.length());
         System.out.println("Complex module of a2: " + complexNumber2.length());
         System.out.println("Complex module of a3: " + complexNumber3.length());
