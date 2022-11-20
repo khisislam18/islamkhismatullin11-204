@@ -2,11 +2,11 @@ package Task2;
 
 public class Main1 {
     public static void main(String[] args) {
-        RationalFraction rationalFraction = new RationalFraction(-55, 5);
+        RationalFraction rationalFraction = new RationalFraction(5,-5);
         System.out.println("Unreduced rF:\n" + rationalFraction);
         rationalFraction.reduce();
         System.out.println("\nReduced rF:\n" + rationalFraction);
-        RationalFraction rationalFraction1 = new RationalFraction(-55, 5);
+        RationalFraction rationalFraction1 = new RationalFraction(5,-10);
         System.out.println("\nUnreduced rF1:\n" + rationalFraction1);
         rationalFraction1.reduce();
         System.out.println("\nReduced rF1:\n" + rationalFraction1);
