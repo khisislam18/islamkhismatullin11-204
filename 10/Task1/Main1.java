@@ -1,8 +1,10 @@
 public class Main1 {
     public static void main(String[] args) {
-        ComplexNumber complexNumber1 = new ComplexNumber(-2,0);
+        ComplexNumber complexNumber1 = new ComplexNumber(0,0);
         System.out.println(complexNumber1);
-        ComplexNumber complexNumber2 = new ComplexNumber(0,-2);
+        ComplexNumber complexNumber2 = new ComplexNumber(0,1);
+        System.out.println(complexNumber2);
+        complexNumber2.mult2(complexNumber1);
         System.out.println(complexNumber2);
         ComplexNumber complexNumber3 = complexNumber1.add(complexNumber2);
         System.out.println("a3 = a1 + a2\n" + complexNumber3);

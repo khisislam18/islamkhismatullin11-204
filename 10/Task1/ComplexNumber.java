@@ -49,8 +49,10 @@ public class ComplexNumber {
     }
 
     public void mult2(ComplexNumber complexNumber){
-        realPart = realPart * complexNumber.getRealPart() - complexPart * complexNumber.getComplexPart();
-        complexPart = realPart * complexNumber.getComplexPart() + complexPart * complexNumber.getRealPart();
+        double a = realPart * complexNumber.getRealPart() - complexPart * complexNumber.getComplexPart();
+        double b = realPart * complexNumber.getComplexPart() + complexPart * complexNumber.getRealPart();
+        realPart = a;
+        complexPart = b;
     }
 
     public ComplexNumber div(ComplexNumber complexNumber) throws ArithmeticException{
@@ -64,22 +66,20 @@ public class ComplexNumber {
         if(complexNumber.getRealPart() == 0 && complexNumber.getComplexPart() == 0){
             throw new ArithmeticException("Denominator can't be zero.");
         }
-        realPart = (realPart * complexNumber.getRealPart() + complexPart * complexNumber.getComplexPart())/(Math.pow(complexNumber.getRealPart(),2) + Math.pow(complexNumber.getComplexPart(), 2));
-        complexPart = ((complexNumber.getRealPart()) * complexPart - realPart * complexNumber.getComplexPart())/(Math.pow(complexNumber.getRealPart(), 2) + Math.pow(complexNumber.getComplexPart(), 2));
+        double a = (realPart * complexNumber.getRealPart() + complexPart * complexNumber.getComplexPart())/(Math.pow(complexNumber.getRealPart(),2) + Math.pow(complexNumber.getComplexPart(), 2));
+        double b = ((complexNumber.getRealPart()) * complexPart - realPart * complexNumber.getComplexPart())/(Math.pow(complexNumber.getRealPart(), 2) + Math.pow(complexNumber.getComplexPart(), 2));
+        realPart = a;
+        complexPart = b;
     }
     public double length(){
         return Math.sqrt(Math.pow(realPart, 2) + Math.pow(complexPart, 2));
     }
     public String toString(){
         DecimalFormat decimalFormat = new DecimalFormat("#.##");
-        if(complexPart < 0){
-            return (realPart != 0 ? decimalFormat.format(realPart) + " - ": "-") + (complexPart != -1 ? decimalFormat.format(Math.abs(complexPart)) : "") + "i";
-        } else if (complexPart == 0) {
-            return decimalFormat.format(realPart);
-        }else if (complexPart == 1) {
-            return realPart != 0 ? decimalFormat.format(realPart) + " + i" : "i";
+        if(complexPart >= 0){
+            return decimalFormat.format(realPart) + " + " + decimalFormat.format(complexPart) + "i";
         }else{
-            return (realPart != 0 ? decimalFormat.format(realPart) + " + " : "") + decimalFormat.format(complexPart) + "i";
+            return decimalFormat.format(realPart) + " - " + decimalFormat.format(Math.abs(complexPart)) + "i";
         }
     }
     public double arg(){
