@@ -17,30 +17,6 @@ public class Student {
         this.courses = courses;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public int getWeight() {
-        return weight;
-    }
-
-    public String getGroupNum() {
-        return groupNum;
-    }
-
-    public int getCourse() {
-        return course;
-    }
-
-    public List<Course> getCourses() {
-        return courses;
-    }
-
     static class Course{
         private String name;
         private String description;
