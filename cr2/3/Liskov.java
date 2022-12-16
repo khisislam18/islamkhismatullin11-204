@@ -2,7 +2,7 @@ public class Liskov {
     public static void beep(){
         System.out.println("beep");
     }
-    static class NewCar{
+    class NewCar extends Liskov{
         public static void beep(){
             System.out.println("New beep????");
         }

@@ -4,7 +4,7 @@ import java.util.regex.Pattern;
 public class BinaryMatcher {
     public static void binaryStringCheck(String[] binArray){
         for (int i = 0; i < binArray.length; i++) {
-            Pattern pattern = Pattern.compile("0+|1+|(01)+(0$|(01)$)|(10)+(1$|(10)$)");
+            Pattern pattern = Pattern.compile("0+|1+|(01)*0?|(10)*1?");
             if(pattern.matcher(binArray[i]).matches()){
                 System.out.println(i + 1);
             }

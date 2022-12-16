@@ -31,7 +31,7 @@ public class Rectangle {
         return Math.abs(xStart - xEnd) * Math.abs(yStart - yEnd);
     }
     public double perimeter(){
-        return Math.abs(xStart - xEnd) * 2 + Math.abs(xStart - xEnd) * 2;
+        return Math.abs(xStart - xEnd) * 2 + Math.abs(yStart - yEnd) * 2;
     }
     public boolean dotQuality(Rectangle rectangle){
         return xStart == rectangle.getxStart() && yStart == rectangle.getyStart()
