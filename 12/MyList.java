@@ -48,6 +48,7 @@ public class MyList {
     public void clear(){
         lastFreeIndex = 0;
     }
+    @Override
     public String toString(){
         String s = "[";
         for (int i = 0; i < lastFreeIndex; i++) {
