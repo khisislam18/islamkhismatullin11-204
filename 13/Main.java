@@ -10,6 +10,7 @@ public class Main {
         list.add("1");
         list.add("2");
         list.add("3");
+        System.out.println(list.get(5));
         List<String> list1 = new ArrayList<>();
         list1.add("4");
         list1.add("5");
@@ -22,14 +23,19 @@ public class Main {
         System.out.println(list);
         System.out.println(list.indexOf("3"));
         list.add("8");
-        list.remove(0);
-        System.out.println(list);
+        list.remove(5);
+        System.out.println(list + "YEESS");
         list.remove("5");
         System.out.println(list);
         list.add("1");
         System.out.println(list);
         list.removeAll(list1);
         System.out.println(list);
+        System.out.println(list1.containsAll(list));
+        list1.addAll(list);
+        System.out.println(list);
+        System.out.println(list1);
+        System.out.println(list1.containsAll(list));
 
         System.out.println("\n--------------------------------------\n");
 
@@ -53,13 +59,26 @@ public class Main {
         System.out.println(myList);
         System.out.println(myList.indexOf("3"));
         myList.add("8");
-        myList.remove(0);
-        System.out.println(myList);
+        System.out.println(myList.size());
+        myList.remove(6);
+        System.out.println(myList + " YEEEEEEES");
         myList.remove("5");
         System.out.println(myList);
         myList.add("1");
         System.out.println(myList);
         myList.removeAll(myList1);
         System.out.println(myList);
+        System.out.println(myList1.containsAll(myList));
+        myList1.addAll(myList);
+        System.out.println(myList);
+        System.out.println(myList1);
+        System.out.println(myList1.containsAll(myList));
+        MyList myList2 = new MyList();
+        myList2.addAll(myList);
+        System.out.println(myList2);
+        System.out.println(myList2.equals(myList));
+        System.out.println(myList.equals(myList2));
+        System.out.println(myList1.equals(myList));
+        System.out.println(myList1.equals(myList2));
     }
 }

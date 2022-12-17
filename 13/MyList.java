@@ -50,12 +50,23 @@ public class MyList {
     }
     @Override
     public String toString(){
-        String s = "[";
+        String s = "";
         for (int i = 0; i < lastFreeIndex; i++) {
             s += i + 1 != lastFreeIndex ? get(i) + ", " : get(i);
         }
-        s += "]";
-        return s;
+        return "[" + s + "]";
+    }
+
+    public boolean equals(MyList otherList){
+        if (lastFreeIndex != otherList.lastFreeIndex){
+            return false;
+        }
+        for (int i = 0; i < lastFreeIndex; i++) {
+            if(!strings[i].equals(otherList.strings[i])){
+                return false;
+            }
+        }
+        return true;
     }
 
     public boolean contains(String s){
@@ -106,4 +117,5 @@ public class MyList {
         }
         return true;
     }
+
 }
