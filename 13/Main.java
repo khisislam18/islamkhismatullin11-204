@@ -10,7 +10,6 @@ public class Main {
         list.add("1");
         list.add("2");
         list.add("3");
-        System.out.println(list.get(5));
         List<String> list1 = new ArrayList<>();
         list1.add("4");
         list1.add("5");
