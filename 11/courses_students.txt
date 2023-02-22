@@ -1,9 +1,0 @@
-Biology,Azat
-Biology,Ildar
-Biology,Sema
-Biology,Vanya
-Chemistry,Vanya
-English,Ildar
-Math,Ildar
-Math,Sema
-Math,Vanya

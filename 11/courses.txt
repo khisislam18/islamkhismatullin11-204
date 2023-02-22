@@ -1,4 +1,0 @@
-Biology,Nice Biology Course
-Chemistry,Nice Chemistry Course
-Math,Algem
-English,Language
