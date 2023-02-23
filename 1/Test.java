@@ -8,6 +8,11 @@ public class Test {
         list.add(new Car("tesla", 3));
         list.add(new Car("tesla", 4));
         list.add(new Car("tesla", 5));
+        System.out.println(list.get(0));
+        System.out.println(list.get(1));
+        System.out.println(list.get(2));
+        System.out.println(list.get(3));
+        System.out.println(list.get(4));
         Comparator<Car> comparator = (o1, o2) -> Integer.compare(o2.getYear(), o1.getYear());
         Comparator<Car> comparator1 = new Comparator<Car>() {
             @Override

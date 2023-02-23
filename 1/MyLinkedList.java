@@ -241,6 +241,16 @@ public class MyLinkedList<T> {
         }
         return array;
     }
+    public T get(int index){
+        Node<T> currentNode = firstNode;
+        if(index < 0 || index > size - 1){
+            throw new IllegalArgumentException();
+        }
+        for (int i = 0; i < index; i++) {
+            currentNode = currentNode.getNext();
+        }
+        return currentNode.getValue();
+    }
     public void sort(Comparator<? super T> comparator){
         Node<T> currentNode = firstNode;
         for (int i = 0; i < size; i++) {
