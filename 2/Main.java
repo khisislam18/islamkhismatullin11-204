@@ -3,7 +3,7 @@ import java.io.FileNotFoundException;
 import java.util.*;
 
 public class Main {
-    public static class Ranking implements Comparable{
+    public static class Ranking{
         private String country;
         private String region;
         private int edition;
@@ -53,12 +53,8 @@ public class Main {
                     '}';
         }
 
-        @Override
-        public int compareTo(Object o) {
-            return 0;
-        }
     }
-    public static class ExtendedRanking extends Ranking implements Comparable{
+    public static class ExtendedRanking extends Ranking{
         private int b1;
         private int b2;
         private int b;
@@ -110,7 +106,6 @@ public class Main {
     // PR rating которой равен 5, а после выводит ее индекс в списке
     public static int configuredSort(Comparator<? super Ranking> comparator, List<? extends Ranking> list){
         list.sort(comparator);
-        int index = 0;
         for (int i = 0; i < list.size(); i++) {
             if(list.get(i).getPrRating() == 5){
                 return i;
@@ -176,8 +171,13 @@ public class Main {
         }
         //5
         rankingList.sort(rankingComparatorString);
-        for (int i = 0; i < 5; i++) {
-            System.out.println(rankingList.get(i));
+        for (int i = 0; i < rankingList.size(); i++) {
+            if(rankingList.get(i).getCountry().equals("Abkhazia")){
+                System.out.println(rankingList.get(i));
+            }else{
+                System.out.println(rankingList.get(i));
+                break;
+            }
         }
     }
 }

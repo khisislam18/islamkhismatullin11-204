@@ -1,4 +1,4 @@
-public class Car implements Comparable{
+public class Car  implements Comparable<Object>{
     private int year;
     private String model;
 
@@ -28,11 +28,11 @@ public class Car implements Comparable{
         return 0;
     }
 
-    @Override
-    public String toString() {
-        return "Car{" +
-                "year=" + year +
-                ", model='" + model + '\'' +
-                '}';
-    }
+//    @Override
+//    public String toString() {
+//        return "Car{" +
+//                "year=" + year +
+//                ", model='" + model + '\'' +
+//                '}';
+//    }
 }

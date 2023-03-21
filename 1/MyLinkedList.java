@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
@@ -53,7 +54,10 @@ public class MyLinkedList<T> {
         if(isEmpty()){
             return false;
         }
+        System.out.println("point contains");
         while(currentNode.getNext() != null){
+            System.out.println("point contains inner while");
+            System.out.println("currentNode.getValue().equals(s) = " + currentNode.getValue().equals(s) + ": point check " + currentNode.getValue() + " and " + s);
             if(currentNode.getValue().equals(s)){
                 return true;
             }
@@ -123,7 +127,7 @@ public class MyLinkedList<T> {
         int counter = 1;
         while(currentNode.getNext() != null){
             currentNode = currentNode.getNext();
-            if(currentNode.getValue() == s){
+            if(currentNode.getValue().equals(s)){
                 return counter;
             }
             counter++;
@@ -176,8 +180,13 @@ public class MyLinkedList<T> {
         if(currentNodeOtherList == null){
             return true;
         }
+        System.out.println("point");
         while(currentNodeOtherList.getNext() != null){
+            System.out.println("point in while 1st outer");
+            System.out.println(contains(currentNodeOtherList.getValue()));
+            System.out.println(currentNodeOtherList.getValue());
             while(contains(currentNodeOtherList.getValue())){
+                System.out.println("point in while 1st inner");
                 remove(currentNodeOtherList.getValue());
             }
             currentNodeOtherList = currentNodeOtherList.getNext();
@@ -185,8 +194,10 @@ public class MyLinkedList<T> {
         while(contains(currentNodeOtherList.getValue())){
        /*     System.out.println(currentNodeOtherList.getValue());
             System.out.println(toString());*/
+            System.out.println("point in while 2");
             remove(currentNodeOtherList.getValue());
         }
+        System.out.println("point in execution");
         return true;
     }
     public int lastIndexOf(T s) {
@@ -282,5 +293,19 @@ public class MyLinkedList<T> {
     }
 
     public static void main(String[] args) {
+        Car car = new Car("bmw", 1997);
+/*        MyLinkedList<Car> list1 = new MyLinkedList<>();
+        list1.add(new Car("bmw", 1997));
+        list1.add(new Car("mers", 1998));
+        list1.add(new Car("suzuki", 1999));
+        list1.add(new Car("lada", 2018));
+        list1.add(new Car("yamaha", 2017));
+        MyLinkedList<Car> list2 = new MyLinkedList<>();
+        list2.add(new Car("bmw",1997));
+        list2.add(new Car("mers",1998));
+        list2.removeAll(list1);
+        System.out.println(list2);    */
+        Car car2 = new Car("bmw", 1997);
+        System.out.println(car.equals(car2));
     }
 }
