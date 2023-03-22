@@ -9,28 +9,30 @@ public class MySet<T> extends AbstractSet<T> implements SortedSet<T> {
     private Class tClass;
 
     public MySet(Comparator<T> comparator, Class<T> tClass) {
-        array = (T[]) Array.newInstance(tClass, 1000);
+        array = (T[]) Array.newInstance(tClass, 0);
         this.comparator = comparator;
         this.tClass = tClass;
     }
 
     public MySet(Comparator<T> comparator, Collection<T> collection, Class<T> tClass) {
-        array = (T[]) Array.newInstance(tClass, 1000);
+        array = (T[]) Array.newInstance(tClass, collection.stream().distinct().toArray().length);
         this.comparator = comparator;
         this.tClass = tClass;
-        List<T> list = new ArrayList<>();
         for (T tmp: collection) {
-            if(!list.contains(tmp)){
-                list.add(tmp);
+            if(!arrayContains(tmp)){
+                array[count++] = tmp;
             }
         }
-        list.sort(comparator);
-        for (int i = 0; i < list.size(); i++) {
-            array[i] = list.get(i);
-            count++;
-        }
+        Arrays.sort(array, comparator);
     }
-
+    private boolean arrayContains(T elem){
+        for (int i = 0; i < count; i++) {
+            if(array[i].equals(elem)){
+                return true;
+            }
+        }
+        return false;
+    }
 
     @Override
     public Iterator<T> iterator() {
@@ -61,45 +63,61 @@ public class MySet<T> extends AbstractSet<T> implements SortedSet<T> {
 
     @Override
     public SortedSet<T> subSet(T fromElement, T toElement) {
-        List<T> list = new ArrayList<>();
+        SortedSet<T> set = new MySet<T>(comparator(), tClass);
+        if(fromElement.equals(toElement)){
+            throw new IllegalArgumentException("fromElement equals toElement");
+        }
         for (int i = 0; i < size(); i++) {
             if (array[i].equals(fromElement)) {
                 do {
-                    list.add(array[i]);
+                    set.add(array[i]);
                     i++;
+                    if(i == size()){
+                        throw new IllegalArgumentException("no such element toElement ahead fromElement");
+                    }
                 } while (!array[i].equals(toElement));
-                list.add(array[i]);
                 break;
             }
+            if(i == size() - 1){
+                throw new IllegalArgumentException("no such element fromElement");
+            }
         }
-        return new MySet<T>(comparator(), list, tClass);
+        return set;
     }
 
     @Override
     public SortedSet<T> headSet(T toElement) {
-        List<T> list = new ArrayList<>();
+        SortedSet<T> set = new MySet<T>(comparator(), tClass);
+        if(array[0].equals(toElement)){
+            return set;
+        }
         int i = 0;
         do {
-            list.add(array[i]);
+            if(i == count - 1){
+                throw new IllegalArgumentException("no such a element");
+            }
+            set.add(array[i]);
             i++;
         } while (!array[i].equals(toElement));
-        list.add(array[i]);
-        return new MySet<T>(comparator(), list, tClass);
+        return set;
     }
 
     @Override
     public SortedSet<T> tailSet(T fromElement) {
-        List<T> list = new ArrayList<>();
+        SortedSet<T> set = new MySet<T>(comparator(), tClass);
         for (int i = 0; i < size(); i++) {
             if(array[i].equals(fromElement)){
                 while(i < size()){
-                    list.add(array[i]);
+                    set.add(array[i]);
                     i++;
                 }
                 break;
             }
+            if (i == size() - 1){
+                throw new IllegalArgumentException("no such a element");
+            }
         }
-        return new MySet<T>(comparator(), list, tClass);
+        return set;
     }
 
     @Override
@@ -111,20 +129,18 @@ public class MySet<T> extends AbstractSet<T> implements SortedSet<T> {
     public T last() {
         return array[size() - 1];
     }
+    @Override
     public boolean add(T elem){
-        List<T> list = new ArrayList<>();
-        for (int i = 0; i < count; i++) {
-            list.add(array[i]);
-        }
-        if(list.contains(elem)){
+        if(arrayContains(elem)){
             return false;
         }
-        list.add(elem);
-        list.sort(comparator);
-        for (int i = 0; i < list.size(); i++) {
-            array[i] = list.get(i);
+        T [] newArray = (T[]) Array.newInstance(tClass, count + 1);
+        for (int i = 0; i < count; i++) {
+            newArray[i] = array[i];
         }
-        count++;
+        newArray[count++] = elem;
+        array = newArray;
+        Arrays.sort(array, comparator);
         return true;
     }
 }
