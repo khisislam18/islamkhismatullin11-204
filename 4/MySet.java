@@ -18,7 +18,7 @@ public class MySet<T> extends AbstractSet<T> implements SortedSet<T> {
         array = (T[]) Array.newInstance(tClass, collection.stream().distinct().toArray().length);
         this.comparator = comparator;
         this.tClass = tClass;
-        for (T tmp: collection) {
+        for (T tmp: collection){
             if(!arrayContains(tmp)){
                 array[count++] = tmp;
             }

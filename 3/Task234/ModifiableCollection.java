@@ -67,8 +67,8 @@ public class ModifiableCollection<T> extends AbstractCollection<T> {
     }
     public void sort(Comparator<T> comparator){
         for (int i = 0; i < array.length; i++) {
-            int pos = i;
             T min = array[i];
+            int pos = i;
             //цикл выбора наименьшего элемента
             for (int j = i + 1; j < array.length; j++) {
                 if (comparator.compare(array[j], min) < 0) {

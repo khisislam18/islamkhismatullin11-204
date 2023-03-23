@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        Comparator<Integer> comparator = new Comparator<Integer>() {
+/*        Comparator<Integer> comparator = new Comparator<Integer>() {
             @Override
             public int compare(Integer o1, Integer o2) {
                 return o1.compareTo(o2);
@@ -35,6 +35,8 @@ public class Main {
         emptySet.add(1);
         emptySet.add(2);
         emptySet.add(3);
-        System.out.println(emptySet);
+        System.out.println(emptySet);*/
+        String [] arr = new String[5];
+        System.out.println(arr[0].equals("huy"));
     }
 }

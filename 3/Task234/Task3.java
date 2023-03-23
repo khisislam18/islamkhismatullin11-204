@@ -10,6 +10,7 @@ public class Task3 {
     public static void listTop5(ModifiableCollection<? extends Billionare> collection, Comparator<Billionare> comparator){
         ModifiableCollection<Billionare> tmp = new ModifiableCollection<>(Billionare.class, new ArrayList<>());
         tmp.addAll(collection);
+        System.out.println("tmp collection:\n" + tmp);
         tmp.sort(comparator);
         Iterator<Billionare> iterator = tmp.iterator();
         String maxOrg = "";
@@ -47,23 +48,20 @@ public class Task3 {
         while(sc.hasNext()){
             String [] currentLine = sc.nextLine().split(";");
             collection.add(new Billionare(Integer.parseInt(currentLine[0]),
-                    currentLine[1] == null ? "null": currentLine[1],
-                    currentLine[2] == null ? Integer.parseInt(currentLine[2]) : 0,
-                    currentLine[3] == null ? Integer.parseInt(currentLine[3]) : 0,
-                    currentLine[4] == null ? "null": currentLine[4],
-                    currentLine[5] == null ? "null": currentLine[5],
-                    currentLine[6] == null ? "null": currentLine[6],
-                    currentLine[7] == null ? "null": currentLine[7],
-                    currentLine[8] == null ? "null": currentLine[8],
-                    currentLine[9] == null ? "null": currentLine[9],
-                    currentLine[10] == null ? "null": currentLine[10],
-                    currentLine[11] == null ? "null": currentLine[11],
-                    currentLine[12] == null ? "null": currentLine[12],
-                    currentLine[13] == null ? "null": currentLine[13],
-                    currentLine[14] == null ? "null": currentLine[14]));
-        }
-        while(iterator.hasNext()){
-            System.out.println(iterator.next());
+                    currentLine[1].equals("") ? "null": currentLine[1],
+                    currentLine[2].equals("") ? -1 : Double.parseDouble(currentLine[2]),
+                    currentLine[3].equals("") ? -1 : Double.parseDouble(currentLine[3]),
+                    currentLine[4].equals("") ? "null": currentLine[4],
+                    currentLine[5].equals("") ? "null": currentLine[5],
+                    currentLine[6].equals("") ? "null": currentLine[6],
+                    currentLine[7].equals("") ? "null": currentLine[7],
+                    currentLine[8].equals("") ? "null": currentLine[8],
+                    currentLine[9].equals("") ? "null": currentLine[9],
+                    currentLine[10].equals("") ? "null": currentLine[10],
+                    currentLine[11].equals("") ? "null": currentLine[11],
+                    currentLine[12].equals("") ? "null": currentLine[12],
+                    currentLine[13].equals("") ? "null": currentLine[13],
+                    currentLine[14].equals("") ? "null": currentLine[14]));
         }
         Comparator<Billionare> comparator = (o1, o2) -> o1.organization.compareTo(o2.organization);
         listTop5(collection, comparator);

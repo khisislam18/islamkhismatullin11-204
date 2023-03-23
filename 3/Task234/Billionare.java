@@ -3,8 +3,8 @@ package Task234;
 public class Billionare{
     public int rank;
     public String personName;
-    public int age;
-    public int finalWorth;
+    public Double age;
+    public Double finalWorth;
     public String category;
     public String source;
     public String country;
@@ -17,7 +17,7 @@ public class Billionare{
     public String title;
     public String philanthropyScore;
 
-    public Billionare(int rank, String personName, int age, int finalWorth, String category, String source, String country, String state, String city, String organization, String selfMade, String gender, String birthDate, String title, String philanthropyScore) {
+    public Billionare(int rank, String personName, Double age, Double finalWorth, String category, String source, String country, String state, String city, String organization, String selfMade, String gender, String birthDate, String title, String philanthropyScore) {
         this.rank = rank;
         this.personName = personName;
         this.age = age;
