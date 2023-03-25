@@ -105,6 +105,6 @@ public class Main {
             stack.push(new Car(Integer.parseInt(str[0]), Integer.parseInt(str[1].split(" ")[0]), str[2], str[3], Double.parseDouble(str[4].split(" ")[0]), str[5]));
         }
         List<Car> sortedCar = stack.stream().sorted((o1, o2) -> o1.kmsDriven.compareTo(o2.kmsDriven)).toList();
-        System.out.println(sortedCar.stream().filter(x -> x.fuelType.equals("Petrol")).min((o1, o2) -> o1.price.compareTo(o2.price)));
+        System.out.println(sortedCar.stream().filter(x -> x.fuelType.equals("Petrol")).min((o1, o2) -> o1.price.compareTo(o2.price)).get());
     }
 }
