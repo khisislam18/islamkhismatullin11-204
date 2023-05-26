@@ -6,8 +6,6 @@ import java.util.stream.Collectors;
 public class Main {
     public static void main(String[] args) throws IOException {
         FileInputStream fileInputStream = new FileInputStream("nba_players.csv");
-/*        FileOutputStream fileOutputStream = new FileOutputStream("nba_players.csv");
-        fileOutputStream.close();*/
         byte[] bytes = new byte[fileInputStream.available()];
         fileInputStream.read(bytes);
         System.out.println(bytes);
